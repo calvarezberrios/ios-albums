@@ -17,7 +17,24 @@ class AlbumController {
         do {
             let data = try Data(contentsOf: urlPath)
             
+            _ = try JSONDecoder().decode(Album.self, from: data)
+            
+        } catch {
+            NSLog("Error getting data and/or decoding from example album: \(error)")
+        }
+    }
+    
+    func testEncodingExampleAlbum() {
+        guard let urlPath = Bundle.main.url(forResource: "exampleAlbum", withExtension: "json") else {
+            NSLog("Error getting getting example album file")
+            return
+        }
+        do {
+            let data = try Data(contentsOf: urlPath)
+            
             let album = try JSONDecoder().decode(Album.self, from: data)
+            
+            let _ = try JSONEncoder().encode(album)
             
         } catch {
             NSLog("Error getting data and/or decoding from example album: \(error)")
