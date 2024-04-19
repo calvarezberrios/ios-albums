@@ -10,11 +10,11 @@ import Foundation
 
 struct Album: Codable {
     let id: String
-    let name: String
-    let artist: String
-    let genres: [String]
-    let coverArt: [URL]
-    let songs: [Song]
+    var name: String
+    var artist: String
+    var genres: [String]
+    var coverArt: [URL]
+    var songs: [Song]
     
     enum AlbumCodingKeys: String, CodingKey {
         case id
@@ -27,6 +27,15 @@ struct Album: Codable {
     
     enum CoverArtCodingKeys: String, CodingKey {
         case url
+    }
+    
+    init(name: String, artist: String,  genres: [String], coverArt: [String], songs: [Song] = []) {
+        self.id = UUID().uuidString
+        self.name = name
+        self.artist = artist
+        self.genres = genres
+        self.coverArt = coverArt.compactMap { URL(string: $0) }
+        self.songs = songs
     }
     
     init(from decoder: any Decoder) throws {

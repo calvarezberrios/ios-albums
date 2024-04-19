@@ -157,6 +157,8 @@
 			dependencies = (
 			);
 			name = Albums;
+			packageProductDependencies = (
+			);
 			productName = Albums;
 			productReference = 39E0C1332BD18F8D00AACD30 /* Albums.app */;
 			productType = "com.apple.product-type.application";
@@ -186,6 +188,8 @@
 				Base,
 			);
 			mainGroup = 39E0C12A2BD18F8D00AACD30;
+			packageReferences = (
+			);
 			productRefGroup = 39E0C1342BD18F8D00AACD30 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
